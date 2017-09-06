@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	.list-group{
+		background-color: #E8E8E8;
+	}
+</style>
+</head>
+<body style="background-color: #E8E8E8;">
+ <ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/index2/">Home</a></li>
+ 
+</ul>
+<h2 align="center">Feedback Detail</h2>
+	<ul class="list-group">
+  <li class="list-group-item"><strong>Feedback No:</strong>  {{ a.fb_no }}</li>
+  <li class="list-group-item"><strong>Name:</strong> {{ a.user.name }}</li>
+  <li class="list-group-item"><strong>Suggestions: </strong> <p>{{ a.Suggestions }}</p></li>
+  <li class="list-group-item"><strong>Remarks:</strong>  {{ a.Remarks }}</li>
+  
+</ul>
+<h3><strong>Reply from the Software developer</strong></h3>
+<p> {{ b.reply }}</p>
+</body>
+</html>

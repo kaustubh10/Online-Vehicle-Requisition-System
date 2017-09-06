@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Feedback</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body style="background-color: #CCCCCC;">
+ <ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/index2/">Home</a></li>
+ 
+</ul>
+ <div class="container-fluid ">
+         <table class="table" style="width:100%">
+         <h2 align="center">Feedbacks List</h2>
+  <tr>
+    <th>Feedback No</th>
+    <th>User</th>
+    <th>Feedback submission time</th>
+    <th>Status</th>
+    
+  </tr>
+  {% for i in c %}
+  <tr>
+    <th><a href="/vehicle/jd_inbox/{{ i.fb_no }}/">{{ i.fb_no }}</a></th>
+    <th>{{ i.user.name }}</th>
+    <th>{{ i.fb_sub_time }}</th>
+    {% if i.status == 1 %}
+    <th>Replied</th>
+    {% else %}
+    <th>Yet to reply</th>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+</div>
+ </body>
+ </html>

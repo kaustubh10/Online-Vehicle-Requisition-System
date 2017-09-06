@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enter date</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #F0F0F0;">
+<h2 align="center">Enter date for daily reports</h2>
+<style>
+	#h2{
+		margin: -100px 0 0 -150px;		
+	}
+	.input-group{
+		position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -170px;
+	}
+	.input-group-btn{
+		position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 150px;	
+	}
+</style>
+<form class="form-inline" id="enter_form" method="POST" action="/vehicle/index2/enter_date/">
+	{% csrf_token %}
+    <div class="input-group">
+      <input type="text" class="form-control" name="date" size="50" placeholder="Enter date" required>
+      <div class="input-group-btn">
+        <button type="submit" role="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

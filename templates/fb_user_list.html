@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Your Feedback list</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body style="background-color: #CCCCCC;">
+ <ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/index2/">Home</a></li>
+ 
+</ul>
+ <div class="container-fluid ">
+         <table class="table" style="width:100%">
+         <h2 align="center">Your feedback list</h2>
+  <tr>
+    <th>Feedback No</th>
+    <th>Feedback submission time</th>
+    
+  </tr>
+  {% for i in c %}
+  <tr>
+    <th><a href="/vehicle/index2/fb_list/{{ i.fb_no }}/">{{ i.fb_no }}</a></th>
+    <th>{{ i.fb_sub_time }}</th>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+ </body>
+ </html>

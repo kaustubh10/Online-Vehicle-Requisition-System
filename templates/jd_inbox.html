@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Inbox</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+ <body style="background-color: #CCCCCC;">
+ <ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/index2/">Home</a></li>
+ 
+</ul>
+      <div class="container-fluid ">
+         <table class="table" style="width:100%">
+         <h2 align="center">List of requests</h2>
+  <tr>
+    <th>App No</th>
+    <th>Initiating Officer</th>
+    <th>Date of Requirement</th>
+    <th>App submission time</th>
+    <th>Transport Type</th>
+    <th>Status</th>
+  </tr>
+  {% for c in c %}
+  <tr>
+    <th name='col1'>{{ c.app_no }}</th>
+    <th name='col2'>{{ c.user.name }}</th>
+    <th name='col3'>{{ c.date_of_journey }}</th>
+    <th name='col4'>{{ c.app_sub_time }}</th>
+    <th name='col5'>{{ c.veh.veh_name }}</th>
+    <th name='col6'>{{ c.status }}</th>
+  </tr>
+  {% endfor %}
+</table>
+ </body>
+ </html>

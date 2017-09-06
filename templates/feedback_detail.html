@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feedback</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	.list-group{
+		background-color: #E8E8E8;
+	}
+</style>
+</head>
+<body style="background-color: #E8E8E8;">
+<h2 align="center">Feedback Detail</h2>
+	<ul class="list-group">
+  <li class="list-group-item"><strong>Feedback No:</strong>  {{ i.fb_no }}</li>
+  <li class="list-group-item"><strong>Name:</strong> {{ i.user.name }}</li>
+  <li class="list-group-item"><strong>Suggestions: </strong> <p>{{ i.Suggestions }}</p></li>
+  <li class="list-group-item"><strong>Remarks:</strong>  {{ i.Remarks }}</li>
+  
+</ul>
+  {% if i.status != 1 and request.user.username == 'SOFT' %}
+	<a role="button" class="btn btn-primary align-center" type="submit" href="/vehicle/jd_inbox/{{ i.fb_no}}/reply/">Send a Reply</a>
+  {% endif %}
+</body>
+</html>

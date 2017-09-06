@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "css/index.css" %}" />
+	<title>Vehicle  List</title>
+	
+  
+<body style="background-color: #E8E8E8;">
+	{% if request.user.username == 'JDMT' %}
+	<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/jd_inbox/">Inbox</a></li>
+  <li role="presentation"><a href="/vehicle/index2/enter_date/">Daily Reports</a></li>
+  <li role="presentation"><a href="/vehicle/logout">Logout</a></li>
+</ul>
+	{% elif request.user.username == 'SOFT' or request.user.username == 'SOFTHEAD' %}
+		<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/vehicle/jd_inbox/">Inbox</a></li>
+  <li role="presentation"><a href="/vehicle/index2/feedback_list/">View Feedbacks</a></li>
+  <li role="presentation"><a href="/vehicle/logout">Logout</a></li>
+		</ul>
+	{% else %}
+	<ul class="nav nav-tabs">	
+	<li role="presentation"><a href="/vehicle/inbox/">Inbox</a></li>
+  	<li role="presentation"><a href="/vehicle/index2/feedback/">Submit Feedback</a></li>
+  	<li role="presentation"><a href="/vehicle/index2/fb_list/">Feedback replies</a></li>
+  	<li role="presentation"><a href="/vehicle/logout">Logout</a></li>
+  	</ul>
+  	{% endif %}
+<div class="container-fluid text-center bg-grey">
+  <h2>Welcome {{ user.name }}</h2><br>
+  <h4>List of vehicles</h4>
+  <div class="row text-center">
+  {% for i,j in liste %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{ i.image.url }}" alt="" width="200" height="200">
+        <p><strong>{{ i.veh_name }}({{ i.capacity }}) </strong></p>
+        <p>Booked slots</p>
+        <ul>
+        		{% for s in j %}
+        		<li>{{ s.from_t }} - {{ s.to_t }}</li>
+        		{% endfor %}
+        </ul>
+        		{% if request.user.username != 'JDMT' and request.user.username != 'SOFT' and request.user.username != 'SOFTHEAD'%}
+      			<a href="/vehicle/index2/requisition/{{ i.veh_name }}" class="btn btn-primary" role="button"/>Book Now</a>
+      			{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>
